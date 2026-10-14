@@ -1,17 +1,39 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        //Exercício 1: Vendas da semana
+        //Leia o faturamento dos 7 dias da semana. Mostre o total, a média
+        //diária e o dia que mais vendeu
+
+        Scanner sc = new Scanner(System.in);
+
+        double[] vendas = new double[7];
+        String[] diaSemana = new String[]{"Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado", "Domingo"};
+
+        double total = 0;
+        double mairVenda = 0;
+        int diaMaiorVenda = 0;
+
+        for (int i = 0; i < vendas.length; i++) {
+            System.out.println("informe o faturamento da " + diaSemana[i]);
+            vendas[i] = sc.nextDouble();
+            if (vendas[i] > mairVenda) {
+                mairVenda = vendas[i];
+                diaMaiorVenda = i;
+
+            }
+            total = total + vendas[i];
+
+            System.out.println("O total foi de " + String.format("%.2f", total));
+            System.out.println("A media foi de " + String.format("%.2f", total / vendas.length));
+            System.out.println("O dia que mais rendeu foi " + diaSemana[diaMaiorVenda]);
+
+
         }
+
     }
 }
